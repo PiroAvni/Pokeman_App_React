@@ -12,7 +12,7 @@ function Pokecard({pokemon}, idx) {
       <h3>{pokemon.name}</h3>
       <img src={pokemon.sprites.front_default} alt={pokemon.name} />
 
-      <p>Type: {pokemon.type}</p>
+      <p>Type: {pokemon.types[0].type.name}</p>
     </div>
     </>
   );

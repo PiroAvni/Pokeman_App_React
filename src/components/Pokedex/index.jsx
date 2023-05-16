@@ -14,7 +14,7 @@ useEffect(() => {
       try {
         const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon.toLowerCase()}`);
         const data = await response.json();
-        //console.log('line 17 pokedex',data);
+        console.log('line 17 pokedex',data);
         setSearchResults([data]);
       } catch (error) {
         console.error('Error fetching Pokemon:', error);
