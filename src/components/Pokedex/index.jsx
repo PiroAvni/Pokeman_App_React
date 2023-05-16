@@ -4,17 +4,17 @@ import React, { useState, useEffect } from 'react'
 import "./pokedex.css"
 
 function Pokedex() {
-const [getpokemon, setGetPokemon] = useState('');
+const [pokemon, setPokemon] = useState('');
 const [searchResults, setSearchResults] = useState([]);
-console.log('line 9 pokedex', searchResults)
+//console.log('line 9 pokedex', searchResults)
 
 useEffect(() => {
   const fetchPokemon = async () => {
-    if (getpokemon.trim() !== '') {
+    if (pokemon.trim() !== '') {
       try {
-        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${getpokemon.toLowerCase()}`);
+        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon.toLowerCase()}`);
         const data = await response.json();
-        console.log('line 17 pokedex',data);
+        //console.log('line 17 pokedex',data);
         setSearchResults([data]);
       } catch (error) {
         console.error('Error fetching Pokemon:', error);
@@ -27,32 +27,31 @@ useEffect(() => {
   };
 
   fetchPokemon();
-}, [getpokemon]);
+}, [pokemon]);
 
-console.log('line 31', searchResults)
+//console.log('line 31', searchResults)
 // Function to handle search input changes
 const handleInputChange = (event) => {
-  setGetPokemon(event.target.value);
+  setPokemon(event.target.value);
 };
 
 // Function to handle search form submission
 const handleSubmit = async (e) => {
   e.preventDefault();
-
 }
   
 
 return (
   <>
 
-    <form onSubmit={handleSubmit}>
-      <input type="text" value={getpokemon} onChange={handleInputChange} placeholder="Search Pokemon" />
+    <form  className="form" onSubmit={handleSubmit}>
+      <input type="text" value={pokemon} onChange={handleInputChange} placeholder="Search Pokemon" />
       <button type="submit">Search</button>
     </form>
    
     <div className="card-container">
         {searchResults.map((pokemon, idx) =>{
-          console.log(pokemon)
+          //console.log(pokemon)
   
         return(
             <Pokecard key={idx} pokemon ={pokemon}/>

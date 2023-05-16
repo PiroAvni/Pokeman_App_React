@@ -5,3 +5,7 @@
     align-items:center;
     margin: auto;
 }
+.form{
+    display: flex;
+    justify-content: center;
+}
