@@ -16,9 +16,10 @@ function SearchForm() {
           console.error('Error fetching Pokemon:', error);
           setSearchResults([]);
         }
-      } else {
-        setSearchResults([]);
-      }
+      } 
+      // else {
+      //   setSearchResults([]);
+      // }
     };
 
     fetchPokemon();
